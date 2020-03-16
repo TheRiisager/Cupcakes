@@ -11,6 +11,7 @@
             <img src="img/logo.svg" height="120" width="300">
 
             <form>
+                <input type="hidden" name="taget" value="login">
                 <div class="form-group">
                     <label for="exampleInputEmail1" style="color:white;">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

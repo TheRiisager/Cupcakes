@@ -15,7 +15,6 @@
                                 </button>
                                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                                     <div class="navbar-nav">
-                                        <a class="nav-item nav-link" href="#">Hjem <span class="sr-only">(current)</span></a>
                                         <a class="nav-item nav-link" href="#">Sortiment</a>
                                         <a class="nav-item nav-link" href="#">Om os</a>
                                         <a class="nav-item nav-link" href="#">Kontakt</a>
