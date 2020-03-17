@@ -13,6 +13,7 @@ CREATE TABLE users
     pass varchar(255) NOT NULL,
     role varchar(255) NOT NULL,
     balance double(10,2) NOT NULL
+
     );
     
 DROP TABLE IF EXISTS cupcaketop;
