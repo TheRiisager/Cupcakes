@@ -13,7 +13,7 @@ public class Connector {
 
     private static final String URL = "jdbc:mysql://localhost:3306/useradmin";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "mario";
 
     private static Connection singleton;
 
