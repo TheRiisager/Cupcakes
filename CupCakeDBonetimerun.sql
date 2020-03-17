@@ -11,7 +11,8 @@ CREATE TABLE users
 	userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email varchar(255) NOT NULL,
     pass varchar(255) NOT NULL,
-    roll int NOT NULL
+    role varchar(255) NOT NULL,
+    balance double(10,2) NOT NULL
     );
     
 DROP TABLE IF EXISTS cupcaketop;
