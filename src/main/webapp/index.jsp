@@ -10,18 +10,18 @@
 
             <img src="img/logo.svg" height="120" width="300">
 
-            <form>
-                <input type="hidden" name="target" value="login">
-                <div class="form-group">
-                    <label for="exampleInputEmail1" style="color:white;">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" style="color:white;">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary" style="color:black; background-color:#f0e940; border-color:#f0e940;">Submit</button>
-            </form>
+<td>
+    <form name="login" action="FrontController" method="POST">
+        <input type="hidden" name="target" value="login">
+        Email:<br>
+        <input type="text" name="email" value="robin@somewhere.com">
+        <br>
+        Password:<br>
+        <input type="password" name="pass" value="batman">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</td>
 
 
 <%@ include file = "footer.inc" %>

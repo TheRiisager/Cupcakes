@@ -16,8 +16,9 @@ public class Login extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
+
         String email = request.getParameter( "email" );
-        String password = request.getParameter( "password" );
+        String password = request.getParameter( "pass" );
         User user = LogicFacade.login( email, password );
 
         HttpSession session = request.getSession();
