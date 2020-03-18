@@ -14,5 +14,6 @@
 
 
 
-        You are now logged in as a customer of our wonderful site.
+
+                You are now logged in as a customer of our wonderful site.
 <%@ include file = "footer_normal.inc" %>

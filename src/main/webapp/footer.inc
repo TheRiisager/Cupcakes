@@ -18,19 +18,19 @@
 
                                         <form name="index" action="FrontController" method="POST">
                                             <input type="hidden" name="target" value="index">
-                                            <input type="submit" value="Hjem">
+                                            <input type="submit" value="Hjem" class="btn btn-light">
                                         </form>
                                         <form name="products" action="FrontController" method="POST">
                                             <input type="hidden" name="target" value="products">
-                                            <input type="submit" value="Sortiment">
+                                            <input type="submit" value="Sortiment" class="btn btn-light">
                                         </form>
                                         <form name="about" action="FrontController" method="POST">
                                             <input type="hidden" name="target" value="about">
-                                            <input type="submit" value="Om os">
+                                            <input type="submit" value="Om os" class="btn btn-light">
                                         </form>
                                         <form name="contact" action="FrontController" method="POST">
                                              <input type="hidden" name="target" value="contact">
-                                            <input type="submit" value="Kontakt">
+                                            <input type="submit" value="Kontakt" class="btn btn-light">
                                         </form>
 
                                     </div>

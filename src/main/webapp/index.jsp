@@ -19,7 +19,8 @@
         Password:<br>
         <input type="password" name="pass" value="batman">
         <br>
-        <input type="submit" value="Submit">
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary">
     </form>
 </td>
 
