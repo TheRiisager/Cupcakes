@@ -17,7 +17,7 @@ public class DBUtil {
 
     public ArrayList cartLoader(int userID) {
 
-        ArrayList<Cupcake> cart = new ArrayList<Cupcake>();;
+        ArrayList<Cupcake> cart = new ArrayList<Cupcake>();
         try {
 
 
@@ -30,15 +30,42 @@ public class DBUtil {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String topName = rs.getString("caketopID");
-                String botName = rs.getString("cakebotID");
+
+
+                String topName = getCupCakeTopIDName(rs.getInt("caketopID"));
+                String botName = getCupCakeBottomIDName(rs.getInt("cakebotID"));
                 cart.add(new Cupcake(botName, topName));
             }
 
 
         } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex);
         }
         return cart;
+    }
+
+    public String getCupCakeTopIDName(int cakeTopID) throws SQLException, ClassNotFoundException {
+        Connection con = Connector.connection();
+        String SQL = "SELECT cakename FROM cupcaketop "
+                + "WHERE caketopID=?";
+        PreparedStatement ps = con.prepareStatement(SQL);
+        ps.setInt(1, cakeTopID);
+        ResultSet rs = ps.executeQuery();
+        String cupCakeTopName = rs.getString("cakename");
+
+        return cupCakeTopName;
+    }
+
+    public String getCupCakeBottomIDName(int cakeBotID) throws SQLException, ClassNotFoundException {
+        Connection con = Connector.connection();
+        String SQL = "SELECT cakename FROM cupcakebot "
+                + "WHERE cakebotID=?";
+        PreparedStatement ps = con.prepareStatement(SQL);
+        ps.setInt(1, cakeBotID);
+        ResultSet rs = ps.executeQuery();
+        String cupCakeTopName = rs.getString("cakename");
+
+        return cupCakeTopName;
     }
 
     public void cupCakeTopLoader() {
