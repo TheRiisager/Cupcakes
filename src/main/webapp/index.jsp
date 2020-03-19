@@ -12,15 +12,18 @@
 
 <td>
     <form name="login" action="FrontController" method="POST">
-        <input type="hidden" name="target" value="login">
-        Email:<br>
-        <input type="text" name="email" value="robin@somewhere.com">
+        <a class="text-white">Email:</a><br>
+        <input type="text" name="email" value="robin@somewhere.com" required>
         <br>
-        Password:<br>
-        <input type="password" name="pass" value="batman">
+        <a class="text-white">Password:</a><br>
+        <input type="password" name="password1" value="batman" required>
         <br>
-        <br>
-        <input type="submit" value="Submit" class="btn btn-primary">
+        <Button type="submit" class="btn btn-primary" name="target" value="login">Log Ind</Button>
+    </form>
+    <br>
+    <form name="userregister" action="FrontController" method="POST">
+        <a class="text-white">Ikke registreret?</a><br>
+        <Button type="submit" class="btn btn-primary" name="target" value="userregister">Registrer Her</Button>
     </form>
 </td>
 

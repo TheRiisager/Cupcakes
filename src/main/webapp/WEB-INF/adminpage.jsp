@@ -5,19 +5,20 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Employee home page</title>
-    </head>
-    <body>
-        
 
-        <h1>Hello ${sessionScope.email} </h1>
+<%@ include file = "header_normal.inc" %>
+
+<h1 class="text-center text-white">VELKOMMEN ${sessionScope.email}</h1>
+
+<div class="card m-5">
+    <h5 class="card-header">Lars' Fødselsdag</h5>
+    <div class="card-body">
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary m-1">Bestil</a>
+        <a href="#" class="btn btn-primary m-1">Rediger</a>
+        <a href="#" class="btn btn-primary m-1">Slet</a>
+    </div>
+</div>
 
 
-
-        You are now logged in as a EMPLOYEE of our wonderful site.
-    </body>
-</html>
+<%@ include file = "footer_normal.inc" %>
