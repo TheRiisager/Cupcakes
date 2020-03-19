@@ -8,7 +8,6 @@
 
 <%@ include file = "header_normal.inc" %>
 
-</div>
 <div class="form-group">
         <label for="exampleFormControlSelect1">Vælg toppen på din cupcake her!</label>
         <select class="form-control" name="Cupcaketop" id="exampleFormControlSelect1">
@@ -24,7 +23,7 @@
         </select>
 </div>
 
-</div>
+
 <div class="form-group">
         <label for="exampleFormControlSelect1">Vælg bunden af din cupcake her!</label>
         <select class="form-control" name="Cupcakebot" id="exampleFormControlSelect1">
@@ -37,7 +36,6 @@
 </div>
 
 <input class="btn btn-primary" type="submit" value="Submit">
-
 
 <%@ include file = "footer_normal.inc" %>
 
