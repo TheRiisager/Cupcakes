@@ -12,7 +12,7 @@ public class Cupcake {
     private static HashMap<String, Top> tops;
     private static HashMap<String, Bottom> bottoms;
 
-    Cupcake(String bottom, String top){
+    public Cupcake(String bottom, String top){
 
         if(tops == null || bottoms == null) {
             //TODO Load items from DB
@@ -28,5 +28,13 @@ public class Cupcake {
 
     public float getPrice() {
         return price;
+    }
+
+    public static void addTop(String string, Top top){
+        tops.put(string,top);
+    }
+
+    public static void addBottom(String string, Bottom bottom){
+        bottoms.put(string,bottom);
     }
 }

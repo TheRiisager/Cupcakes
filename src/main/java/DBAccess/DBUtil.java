@@ -1,0 +1,99 @@
+package DBAccess;
+
+import FunctionLayer.LoginSampleException;
+import FunctionLayer.User;
+import FunctionLayer.Cupcake;
+import java.sql.*;
+import java.util.ArrayList;
+import FunctionLayer.Bottom;
+import FunctionLayer.Top;
+
+
+
+public class DBUtil {
+
+
+
+
+    public ArrayList cartLoader(int userID) {
+
+        ArrayList<Cupcake> cart = new ArrayList<Cupcake>();;
+        try {
+
+
+            int orderID = getOrderID(userID);
+            Connection con = Connector.connection();
+            String SQL = "SELECT caketopID, cakebotID FROM orderscupcakes "
+                    + "WHERE orderID=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String topName = rs.getString("caketopID");
+                String botName = rs.getString("cakebotID");
+                cart.add(new Cupcake(botName, topName));
+            }
+
+
+        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        return cart;
+    }
+
+    public void cupCakeTopLoader() {
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT cakename, price FROM cupcaketop ";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString(2);
+                int price = rs.getInt(3);
+                Cupcake.addTop(name, new Top(price, name));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void cupCakeBottomLoader() {
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT cakename, price FROM cupcakebot ";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString(2);
+                int price = rs.getInt(3);
+                Cupcake.addBottom(name, new Bottom(price, name));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*
+    Henter OrderID fra DB hvor isordered = 0
+ */
+    public int getOrderID(int userID) throws SQLException, ClassNotFoundException {
+        Connection con = Connector.connection();
+        String SQL = "SELECT orderID FROM orders "
+                + "WHERE userID=? AND isordered=0";
+
+        PreparedStatement ps = con.prepareStatement(SQL);
+        ps.setInt( 1, userID );
+        ResultSet rs = ps.executeQuery();
+        int orderID = rs.getInt("orderID");
+
+        return orderID;
+    }
+}
