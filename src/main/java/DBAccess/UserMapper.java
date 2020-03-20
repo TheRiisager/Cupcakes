@@ -50,7 +50,6 @@ public class UserMapper {
                 User user = new User( email, password, role );
                 user.setId( id );
                 user.setUserOrder();
-                user.addToOrder(new Cupcake("test","test"));
 
                 return user;
             } else {
