@@ -9,7 +9,6 @@ import DBAccess.UserMapper;
 public class LogicFacade {
 
     public static User login( String email, String password ) throws LoginSampleException {
-        System.out.println(2.);
         return UserMapper.login( email, password );
     } 
 

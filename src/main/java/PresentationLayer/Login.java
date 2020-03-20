@@ -16,7 +16,7 @@ public class Login extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
-        System.out.println(1.1);
+
         String email = request.getParameter( "email" );
         String password = request.getParameter( "password1" );
         User user = LogicFacade.login( email, password );
@@ -27,7 +27,7 @@ public class Login extends Command {
         session.setAttribute( "role", user.getRole() );
         session.setAttribute("email", email);  // ellers skal man skrive  user.email på jsp siderne og det er sgu lidt mærkeligt at man har adgang til private felter. Men måske er det meget fedt , jeg ved det ikke
 
-        System.out.println(1.2);
+
         return user.getRole() + "page";
     }
 
