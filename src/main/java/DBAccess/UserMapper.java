@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Cupcake;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
 import java.sql.Connection;
@@ -48,6 +49,9 @@ public class UserMapper {
                 int id = rs.getInt( "userID" );
                 User user = new User( email, password, role );
                 user.setId( id );
+                user.setUserOrder();
+                user.addToOrder(new Cupcake("test","test"));
+
                 return user;
             } else {
                 throw new LoginSampleException( "Could not validate user" );

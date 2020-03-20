@@ -1,4 +1,6 @@
 package FunctionLayer;
+import DBAccess.DBUtil;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,7 +17,9 @@ public class Cupcake {
     public Cupcake(String bottom, String top){
 
         if(tops == null || bottoms == null) {
-            //TODO Load items from DB
+            tops= new HashMap<>();
+            bottoms = new HashMap<>();
+
         }
 
         this.bottom = bottom;
@@ -23,11 +27,14 @@ public class Cupcake {
         this.name = bottom + " " + top;
 
         this.price = tops.get(top).getPrice() + bottoms.get(bottom).getPrice();
-
     }
 
     public float getPrice() {
         return price;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public static void addTop(String string, Top top){

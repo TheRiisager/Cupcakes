@@ -1,5 +1,9 @@
 package FunctionLayer;
 
+import DBAccess.DBUtil;
+
+import java.util.ArrayList;
+
 /**
  * The purpose of User is to...
  * @author kasper
@@ -16,6 +20,24 @@ public class User {
     private String email;
     private String password; // Should be hashed and secured
     private String role;
+
+    private Order userOrder;
+
+    public Order getUserOrder() {
+        return userOrder;
+    }
+
+    public void setUserOrder() {
+        this.userOrder = new Order( DBUtil.cartLoader( this.id ) );
+    }
+
+    public void setUserOrder(Order o) {
+        this.userOrder = o;
+    }
+
+    public void addToOrder(Cupcake cupcake) {
+        this.userOrder.addCake(cupcake);
+    }
 
     public String getEmail() {
         return email;

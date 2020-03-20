@@ -101,6 +101,7 @@ public class DBUtil {
                 int price = rs.getInt(2);
                 Cupcake.addBottom(name, new Bottom(price, name));
             }
+            con.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

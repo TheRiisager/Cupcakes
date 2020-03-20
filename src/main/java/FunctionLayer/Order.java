@@ -15,4 +15,16 @@ public class Order {
             subtotal += c.getPrice();
         }
     }
+
+    public ArrayList<Cupcake> getCakes() {
+        return cakes;
+    }
+
+    public void setCakes(ArrayList<Cupcake> cakes) {
+        this.cakes = cakes;
+    }
+
+    public void addCake(Cupcake cupcake) {
+        cakes.add(cupcake);
+    }
 }
