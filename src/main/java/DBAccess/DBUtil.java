@@ -77,8 +77,8 @@ public class DBUtil {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String name = rs.getString(2);
-                int price = rs.getInt(3);
+                String name = rs.getString(1);
+                int price = rs.getInt(2);
                 Cupcake.addTop(name, new Top(price, name));
             }
         } catch (ClassNotFoundException e) {
@@ -97,8 +97,8 @@ public class DBUtil {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String name = rs.getString(2);
-                int price = rs.getInt(3);
+                String name = rs.getString(1);
+                int price = rs.getInt(2);
                 Cupcake.addBottom(name, new Bottom(price, name));
             }
         } catch (ClassNotFoundException e) {
