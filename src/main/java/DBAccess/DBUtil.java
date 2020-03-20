@@ -15,7 +15,7 @@ public class DBUtil {
 
 
 
-    public ArrayList cartLoader(int userID) {
+    public static ArrayList cartLoader(int userID) {
 
         ArrayList<Cupcake> cart = new ArrayList<Cupcake>();
         try {
@@ -44,7 +44,7 @@ public class DBUtil {
         return cart;
     }
 
-    public String getCupCakeTopIDName(int cakeTopID) throws SQLException, ClassNotFoundException {
+    public static String getCupCakeTopIDName(int cakeTopID) throws SQLException, ClassNotFoundException {
         Connection con = Connector.connection();
         String SQL = "SELECT cakename FROM cupcaketop "
                 + "WHERE caketopID=?";
@@ -56,19 +56,19 @@ public class DBUtil {
         return cupCakeTopName;
     }
 
-    public String getCupCakeBottomIDName(int cakeBotID) throws SQLException, ClassNotFoundException {
+    public static String getCupCakeBottomIDName(int cakeBotID) throws SQLException, ClassNotFoundException {
         Connection con = Connector.connection();
         String SQL = "SELECT cakename FROM cupcakebot "
                 + "WHERE cakebotID=?";
         PreparedStatement ps = con.prepareStatement(SQL);
         ps.setInt(1, cakeBotID);
         ResultSet rs = ps.executeQuery();
-        String cupCakeTopName = rs.getString("cakename");
+        String cupCakeBottomName = rs.getString("cakename");
 
-        return cupCakeTopName;
+        return cupCakeBottomName;
     }
 
-    public void cupCakeTopLoader() {
+    public static void cupCakeTopLoader() {
 
         try {
             Connection con = Connector.connection();
@@ -88,7 +88,7 @@ public class DBUtil {
         }
 
     }
-    public void cupCakeBottomLoader() {
+    public static void cupCakeBottomLoader() {
 
         try {
             Connection con = Connector.connection();
@@ -101,7 +101,7 @@ public class DBUtil {
                 int price = rs.getInt(2);
                 Cupcake.addBottom(name, new Bottom(price, name));
             }
-            con.close();
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -112,7 +112,7 @@ public class DBUtil {
     /*
     Henter OrderID fra DB hvor isordered = 0
  */
-    public int getOrderID(int userID) throws SQLException, ClassNotFoundException {
+    private static int getOrderID(int userID) throws SQLException, ClassNotFoundException {
         Connection con = Connector.connection();
         String SQL = "SELECT orderID FROM orders "
                 + "WHERE userID=? AND isordered=0";
