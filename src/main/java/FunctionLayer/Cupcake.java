@@ -20,6 +20,9 @@ public class Cupcake {
             tops= new HashMap<>();
             bottoms = new HashMap<>();
 
+            DBUtil.cupCakeTopLoader();
+            DBUtil.cupCakeBottomLoader();
+
         }
 
         this.bottom = bottom;
