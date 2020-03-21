@@ -12,8 +12,7 @@
     <title>Title</title>
 
     <c:forEach var="cupcake" items="${userOrderList}">
-        ${cupcake.getName}
-        ${cupcake.getPrice}<br>
+        ${cupcake}<br>
     </c:forEach>
 
 </head>

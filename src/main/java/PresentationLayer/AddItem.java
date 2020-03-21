@@ -8,19 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Cart extends Command{
-
-
+public class AddItem extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute( "user" );
 
-        session.setAttribute("userOrderList", u.getUserOrder().getCakes());
 
+        String top = request.getParameter( "Cupcaketop" );
+        String bottom = request.getParameter( "Cupcakebot" );
 
+        System.out.println(top);
+        System.out.println(bottom);
 
-        return "cart";
+        u.addToOrder( new Cupcake( bottom , top ) );
+
+        return "userpage";
     }
 }

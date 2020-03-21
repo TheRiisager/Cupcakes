@@ -8,6 +8,7 @@
 
 <%@ include file = "header_normal.inc" %>
 <div class="container w-75" style="margin-top: 25px;">
+        <form name="login" action="FrontController" method="POST">
         <div class="form-group" style="color: white;">
                 <label for="exampleFormControlSelect1">Vælg toppen på din cupcake her!</label>
                 <select class="form-control" name="Cupcaketop" id="exampleFormControlSelect1">
@@ -27,15 +28,15 @@
         <div class="form-group" style="color: white;">
                 <label for="exampleFormControlSelect1">Vælg bunden af din cupcake her!</label>
                 <select class="form-control" name="Cupcakebot" id="exampleFormControlSelect1">
-                        <option value="1">Chocolate</option>
-                        <option value="2">Vanilla</option>
-                        <option value="3">Nutmeg</option>
-                        <option value="4">Pistacio</option>
-                        <option value="5">Almond</option>
+                        <option>Chocolate</option>
+                        <option>Vanilla</option>
+                        <option>Nutmeg</option>
+                        <option>Pistacio</option>
+                        <option>Almond</option>
                 </select>
         </div>
-
-        <input class="btn btn-primary" type="submit" value="Submit">
+                <Button type="submit" class="btn btn-primary" name="target" value="addItem">Føj til bestilling</Button>
+        </form>
 </div>
 
 <%@ include file = "footer_normal.inc" %>

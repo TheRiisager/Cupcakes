@@ -8,6 +8,8 @@ public class Order {
 
     private ArrayList<Cupcake> cakes;
 
+    private int id;
+
     Order(ArrayList<Cupcake> cakes){
         this.cakes = cakes;
 
@@ -26,5 +28,13 @@ public class Order {
 
     public void addCake(Cupcake cupcake) {
         cakes.add(cupcake);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

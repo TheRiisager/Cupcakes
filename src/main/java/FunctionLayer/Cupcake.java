@@ -20,8 +20,8 @@ public class Cupcake {
             tops= new HashMap<>();
             bottoms = new HashMap<>();
 
-            DBUtil.cupCakeTopLoader();
-            DBUtil.cupCakeBottomLoader();
+           DBUtil.cupCakeTopLoader();
+           DBUtil.cupCakeBottomLoader();
 
         }
 
@@ -47,4 +47,10 @@ public class Cupcake {
     public static void addBottom(String string, Bottom bottom){
         bottoms.put(string,bottom);
     }
+
+    @Override
+    public String toString() {
+        return name + " " + price;
+    }
+
 }
