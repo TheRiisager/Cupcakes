@@ -7,8 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@ include file = "header_normal.inc" %>
-<div class="container w-75">
-        <div class="form-group">
+<div class="container w-75" style="margin-top: 25px;">
+        <div class="form-group" style="color: white;">
                 <label for="exampleFormControlSelect1">Vælg toppen på din cupcake her!</label>
                 <select class="form-control" name="Cupcaketop" id="exampleFormControlSelect1">
                         <option>Chocolate</option>
@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group" style="color: white;">
                 <label for="exampleFormControlSelect1">Vælg bunden af din cupcake her!</label>
                 <select class="form-control" name="Cupcakebot" id="exampleFormControlSelect1">
                         <option value="1">Chocolate</option>
