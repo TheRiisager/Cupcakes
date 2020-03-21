@@ -9,11 +9,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@ include file = "header.inc" %>
-
-<h1>Kontakt</h1>
-<p>Kontakt os her:</p> <br>
-<p>Email: Cupcakes@halla.dk</p><br>
-<p> Nummer: 26 98 55 47 </p>
-
+<div class="container w-75" style="color: white;">
+    <h1>Kontakt</h1>
+    <p>Kontakt os her:</p> <br>
+    <p>Email: Cupcakes@halla.dk</p><br>
+    <p> Nummer: 26 98 55 47 </p>
+</div>
 
 <%@ include file = "footer.inc" %>

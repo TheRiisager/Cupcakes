@@ -78,7 +78,7 @@ public class DBUtil {
 
             while (rs.next()) {
                 String name = rs.getString(1);
-                int price = rs.getInt(2);
+                float price = rs.getFloat(2);
                 Cupcake.addTop(name, new Top(price, name));
             }
         } catch (ClassNotFoundException e) {
@@ -98,7 +98,7 @@ public class DBUtil {
 
             while (rs.next()) {
                 String name = rs.getString(1);
-                int price = rs.getInt(2);
+                float price = rs.getFloat(2);
                 Cupcake.addBottom(name, new Bottom(price, name));
             }
 

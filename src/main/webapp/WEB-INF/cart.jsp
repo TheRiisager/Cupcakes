@@ -17,6 +17,11 @@
     </c:forEach>
         <li class="list-group-item font-weight-bold">Total - ${subtotal}kr.</li>
     </ul>
+
+    <br>
+
+    <Button type="submit" class="btn btn-primary" name="target" value="cart">Betal med kredit</Button>
+    <Button type="submit" class="btn btn-primary" name="target" value="cart">Betal i butikken</Button>
 </div>
 
 <%@ include file = "footer_normal.inc" %>

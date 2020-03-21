@@ -8,9 +8,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@ include file = "header.inc" %>
-
-<h1>Sortiment</h1>
-
-
-<%@ include file = "footer.inc" %>
+<%@ include file = "header_normal.inc" %>
+<div class="container w-75" style="color: white;">
+    <h1>Sortiment</h1>
+</div>
+<%@ include file = "footer_normal.inc" %>

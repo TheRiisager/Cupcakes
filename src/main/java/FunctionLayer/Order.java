@@ -24,7 +24,7 @@ public class Order {
 
     public void setCakes(ArrayList<Cupcake> cakes) {
         this.cakes = cakes;
-        subtotal = 0;
+        subtotal = 0.00f;
         for(Cupcake c : cakes) {
             subtotal += c.getPrice();
         }

@@ -48,7 +48,7 @@
                                 <div class="navbar-nav">
 
                                         <form name="index" action="FrontController" method="POST">
-                                                <input type="hidden" name="target" value="userpage">
+                                                <input type="hidden" name="target" value="index">
                                                 <input type="submit" value="Hjem" class="btn btn-light">
                                         </form>
                                         <form name="products" action="FrontController" method="POST">
@@ -69,13 +69,6 @@
 
                         </div>
 
-                        <div class="justify-content-right">
-                            <form >
-                                <input type="hidden" name="target" value="cart">
-                                <input type="submit" value="${sessionScope.email}" class="btn btn-light font-weight-light">
-                                <img src="img/cart.svg" height="25" width="25">
-                            </form>
-                        </div>
                 </nav>
 
 

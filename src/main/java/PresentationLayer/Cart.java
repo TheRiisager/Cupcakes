@@ -19,7 +19,8 @@ public class Cart extends Command{
 
         session.setAttribute("userOrderList", u.getUserOrder().getCakes());
 
-        session.setAttribute( "subtotal", u.getUserOrder().getSubtotal() );
+        String totalString = String.format("%.2f", u.getUserOrder().getSubtotal());
+        session.setAttribute( "subtotal", totalString );
 
         return "cart";
     }
