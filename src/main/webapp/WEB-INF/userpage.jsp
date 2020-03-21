@@ -8,6 +8,9 @@
 
 <%@ include file = "header_normal.inc" %>
 <div class="container w-75" style="margin-top: 25px;">
+
+        <img src="img/logo.svg" height="200">
+
         <form name="login" action="FrontController" method="POST">
         <div class="form-group" style="color: white;">
                 <label for="exampleFormControlSelect1">Vælg toppen på din cupcake her!</label>

@@ -11,11 +11,13 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Cupcakes" target="8" />
+      <module name="prejektSkabelon" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Cupcakes" options="-endorseddirs &quot;C:\Users\Ali Raid Tahir\CupCake\Cupcakes\target/endorsed&quot;" />
+      <module name="Cupcakes" options="-endorseddirs D:\Coding\Cupcakes\target/endorsed" />
+      <module name="prejektSkabelon" options="-endorseddirs D:\Coding\Cupcakes\target/endorsed" />
     </option>
   </component>
 </project>

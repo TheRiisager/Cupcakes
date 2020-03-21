@@ -24,10 +24,15 @@ public class Order {
 
     public void setCakes(ArrayList<Cupcake> cakes) {
         this.cakes = cakes;
+        subtotal = 0;
+        for(Cupcake c : cakes) {
+            subtotal += c.getPrice();
+        }
     }
 
     public void addCake(Cupcake cupcake) {
         cakes.add(cupcake);
+        subtotal += cupcake.getPrice();
     }
 
     public int getId() {
@@ -36,5 +41,9 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public float getSubtotal() {
+        return subtotal;
     }
 }
