@@ -1,6 +1,8 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.User;
+
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,7 @@ abstract class Command {
         commands.put( "userregister", new UserRegister() );
         commands.put( "cart", new Cart() );
         commands.put( "addItem", new AddItem() );
+        commands.put( "userpage", new Userpage() );
     }
 
     static Command from( HttpServletRequest request ) {
