@@ -44,7 +44,7 @@
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                        <div class="collapse navbar-collapse justify-content-left" id="navbarNavAltMarkup">
                                 <div class="navbar-nav">
 
                                         <form name="index" action="FrontController" method="POST">
@@ -64,7 +64,17 @@
                                                 <input type="submit" value="Kontakt" class="btn btn-light">
                                         </form>
 
+
                                 </div>
+
+                        </div>
+
+                        <div class="justify-content-right">
+                            <form >
+                                <input type="hidden" name="target" value="cart">
+                                <input type="submit" value="${sessionScope.email}" class="btn btn-light font-weight-light">
+                                <img src="img/cart.svg" height="25" width="25">
+                            </form>
                         </div>
                 </nav>
 
