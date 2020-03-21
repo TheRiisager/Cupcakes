@@ -11,6 +11,9 @@
 <%@ include file = "header.inc" %>
 
 <h1>Kontakt</h1>
+<p>Kontakt os her:</p> <br>
+<p>Email: Cupcakes@halla.dk</p><br>
+<p> Nummer: 26 98 55 47 </p>
 
 
 <%@ include file = "footer.inc" %>
