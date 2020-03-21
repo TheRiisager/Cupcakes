@@ -13,10 +13,10 @@
 <td>
     <form name="login" action="FrontController" method="POST">
         <a class="text-white">Email:</a><br>
-        <input type="text" name="email" value="robin@somewhere.com" required>
+        <input type="text" name="email" value="lars@somewhere.com" required>
         <br>
         <a class="text-white">Password:</a><br>
-        <input type="password" name="password1" value="batman" required>
+        <input type="password" name="password1" value="42069" required>
         <br>
         <Button type="submit" class="btn btn-primary" name="target" value="login">Log Ind</Button>
     </form>
