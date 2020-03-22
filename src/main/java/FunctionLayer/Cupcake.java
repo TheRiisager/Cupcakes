@@ -48,6 +48,14 @@ public class Cupcake {
         bottoms.put(string,bottom);
     }
 
+    public static int getTopCakeID(String cakeName){
+        return tops.get(cakeName).getCakeID();
+    }
+
+    public static int getBottomCakeID(String cakeName){
+        return bottoms.get(cakeName).getCakeID();
+    }
+
 
 
     @Override

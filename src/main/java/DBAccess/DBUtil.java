@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import FunctionLayer.Bottom;
 import FunctionLayer.Top;
 
+import static FunctionLayer.Cupcake.tops;
 
 
 public class DBUtil {
@@ -161,17 +162,30 @@ public class DBUtil {
 
     }
 
-    public static void saveCart(ArrayList cart, int userID){
+    public static void saveCupcakeToOrder(String top, String bottom, int userID){
 
         try{
             int orderID = getOrderID(userID);
+
+
             Connection con = Connector.connection();
-            String SQL = "SELECT orderID FROM orders "
-                    + "WHERE userID=? AND isordered=0";
+            String SQL = "UPDATE orderscupcakes "
+            +   "SET orderID = ?, " +
+                    "caketopID = ? " +
+                    "cakebotID = ? " +
+                        "WHERE condition;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, userID);
-            ResultSet rs = ps.executeQuery();
+            ps.setInt(1, orderID);
+            ps.setInt(2, Cupcake.getTopCakeID(top));
+            ps.setInt(3, Cupcake.getBottomCakeID(bottom));
+            ps.executeUpdate();
+
+
+
+
+
+
 
 
         } catch (SQLException e) {

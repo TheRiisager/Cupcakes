@@ -3,7 +3,7 @@ package FunctionLayer;
 public class CakePart {
 
     private float price;
-    private float cakeID;
+    private int cakeID;
     private String name;
 
     CakePart(float price, String name, int cakeID) {
@@ -14,5 +14,8 @@ public class CakePart {
 
     public float getPrice() {
         return price;
+    }
+    public int getCakeID() {
+        return cakeID;
     }
 }
