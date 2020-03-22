@@ -8,7 +8,7 @@
 
 <%@ include file = "header.inc" %>
 
-            <img src="img/logo.svg" height="120" width="300">
+            <img src="img/logotest.svg" height="200">
 
 <td>
     <form name="login" action="FrontController" method="POST">

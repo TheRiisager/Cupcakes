@@ -9,7 +9,7 @@
 <%@ include file = "header_normal.inc" %>
 <div class="container w-75" style="margin-top: 25px;">
 
-        <img src="img/logo.svg" height="200">
+                <img src="img/logotest.svg" height="300" style="display: block; margin: 0 auto;">
 
         <form name="login" action="FrontController" method="POST">
         <div class="form-group" style="color: white;">

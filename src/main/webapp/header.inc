@@ -23,8 +23,8 @@
 
             #maindiv {
                 background-image: linear-gradient(to right, rgba(60,20,96,1), rgba(60,20,96,0));
-                padding-top: 40px;
-                padding-bottom: 40px;
+                padding-top: 0px;
+                padding-bottom: 20px;
             }
          </style>
      </head>
