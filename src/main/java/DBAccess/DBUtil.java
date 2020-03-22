@@ -171,7 +171,7 @@ public class DBUtil {
             Connection con = Connector.connection();
             String SQL = "UPDATE orderscupcakes "
             +   "SET orderID = ?, " +
-                    "caketopID = ? " +
+                    "caketopID = ?, " +
                     "cakebotID = ? " +
                         "WHERE condition;";
 
