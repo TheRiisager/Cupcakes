@@ -13,6 +13,8 @@
     <h1 class="display-2">Tillykke!</h1>
     <br>
     <p>Din bestilling er gået igennem, og vi begynder snarest muligt at lave dine cupcakes! Hold udkig efter en mail fra os, så du ved hvornår de er færdige!</p>
+
+    <img src="img/llama.png" height="500">
 </div>
 
 <%@ include file = "footer_normal.inc" %>
