@@ -6,18 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Cupcakes" />
+        <module name="prejektSkabelon" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Cupcakes" target="8" />
       <module name="prejektSkabelon" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Cupcakes" options="-endorseddirs D:\Coding\Cupcakes\target/endorsed" />
-      <module name="prejektSkabelon" options="-endorseddirs D:\Coding\Cupcakes\target/endorsed" />
+      <module name="prejektSkabelon" options="-endorseddirs C:\Users\ckfol\Desktop\Cupcake\Cupcakes\target/endorsed" />
     </option>
   </component>
 </project>

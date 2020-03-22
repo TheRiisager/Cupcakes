@@ -173,12 +173,13 @@ public class DBUtil {
             +   "SET orderID = ?, " +
                     "caketopID = ?, " +
                     "cakebotID = ? " +
-                        "WHERE condition;";
+                        "WHERE userID = ?;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderID);
             ps.setInt(2, Cupcake.getTopCakeID(top));
             ps.setInt(3, Cupcake.getBottomCakeID(bottom));
+            ps.setInt(4, userID);
             ps.executeUpdate();
 
 
@@ -195,6 +196,8 @@ public class DBUtil {
         }
 
     }
+
+
 
 
 
