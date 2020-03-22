@@ -103,6 +103,7 @@ public class DBUtil {
             }
 
         } catch (ClassNotFoundException e) {
+
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -124,4 +125,42 @@ public class DBUtil {
 
         return orderID;
     }
+
+    public static ArrayList createCart(int userID){
+        ArrayList<Cupcake> cart = new ArrayList<Cupcake>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT orderID FROM orders "
+                    + "WHERE userID=? AND isordered=0";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+
+            if(!rs.next()) {
+                SQL = "INSERT INTO orders (userID, subtotal, quantity, isordered, ispaid)"
+                        + "VALUES	(?, 0, 0, 0, 0);";
+                ps = con.prepareStatement(SQL);
+                ps.setInt(1,userID);
+                ps.executeUpdate();
+
+            }
+            return cart;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
+
+
+
+
+
 }
