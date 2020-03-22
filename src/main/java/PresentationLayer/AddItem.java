@@ -19,9 +19,6 @@ public class AddItem extends Command {
         String top = request.getParameter( "Cupcaketop" );
         String bottom = request.getParameter( "Cupcakebot" );
 
-        System.out.println(top);
-        System.out.println(bottom);
-
         u.addToOrder( new Cupcake( bottom , top ) );
 
         return "userpage";

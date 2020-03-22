@@ -19,9 +19,10 @@
     </ul>
 
     <br>
-
-    <Button type="submit" class="btn btn-primary" name="target" value="cart">Betal med kredit</Button>
-    <Button type="submit" class="btn btn-primary" name="target" value="cart">Betal i butikken</Button>
+    <form name="pay" action="FrontController" method="POST">
+        <Button type="submit" class="btn btn-primary" name="target" value="ordercomplete">Betal med kredit</Button>
+        <Button type="submit" class="btn btn-primary" name="target" value="ordercompletenopay">Betal i butikken</Button>
+    </form>
 </div>
 
 <%@ include file = "footer_normal.inc" %>

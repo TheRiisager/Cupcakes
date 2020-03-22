@@ -11,7 +11,7 @@
 
                 <img src="img/logotest.svg" height="300" style="display: block; margin: 0 auto;">
 
-        <form name="login" action="FrontController" method="POST">
+        <form name="cupcakeselect" action="FrontController" method="POST">
         <div class="form-group" style="color: white;">
                 <label for="exampleFormControlSelect1">Vælg toppen på din cupcake her!</label>
                 <select class="form-control" name="Cupcaketop" id="exampleFormControlSelect1">
