@@ -15,6 +15,7 @@ public class DBUtil {
         try {
             System.out.println("Before query");
             int orderID = getOrderID(userID);
+            System.out.println(orderID);
 
             if(orderID != -1) {
                 Connection con = Connector.connection();
@@ -117,17 +118,20 @@ public class DBUtil {
     private static int getOrderID(int userID) {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT orderID FROM orders "
-                    + "WHERE userID=? AND isordered=0";
-
+            String SQL = "SELECT orderID, isordered FROM orders "
+                    + "WHERE userID = ? AND isordered = 0;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt( 1, userID );
             ResultSet rs = ps.executeQuery();
-            int orderID = rs.getInt("orderID");
-            System.out.println(orderID);
-            return orderID;
 
+            if(rs.next()) {
+                int orderID = rs.getInt(1);
+
+                return orderID;
+            }
+            return -1;
         } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex);
             return -1;
         }
 
@@ -161,7 +165,6 @@ public class DBUtil {
 
         try{
             int orderID = getOrderID(userID);
-
 
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orderscupcakes (orderID, caketopID, cakebotID, price)"
