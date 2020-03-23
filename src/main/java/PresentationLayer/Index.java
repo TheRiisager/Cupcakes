@@ -15,7 +15,7 @@ public class Index  extends Command {
         User u = (User) session.getAttribute( "user" );
 
         if(u != null) {
-            return "userpage";
+            return u.getRole() + "page";
         } else {
             return "index";
         }

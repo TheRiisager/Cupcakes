@@ -1,49 +1,46 @@
 package DBAccess;
-
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
 import FunctionLayer.Cupcake;
 import java.sql.*;
 import java.util.ArrayList;
 import FunctionLayer.Bottom;
 import FunctionLayer.Top;
 
-import static FunctionLayer.Cupcake.tops;
 
 
 public class DBUtil {
 
-
-
-
-    public static ArrayList cartLoader(int userID) {
+    public static ArrayList<Cupcake> cartLoader(int userID) {
 
         ArrayList<Cupcake> cart = new ArrayList<Cupcake>();
         try {
-
-
+            System.out.println("Before query");
             int orderID = getOrderID(userID);
-            Connection con = Connector.connection();
-            String SQL = "SELECT caketopID, cakebotID FROM orderscupcakes "
-                    + "WHERE orderID=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, orderID);
-            ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
+            if(orderID != -1) {
+                Connection con = Connector.connection();
+                String SQL = "SELECT caketopID, cakebotID FROM orderscupcakes "
+                        + "WHERE orderID=?";
+                PreparedStatement ps = con.prepareStatement(SQL);
+                ps.setInt(1, orderID);
+                ResultSet rs = ps.executeQuery();
+                System.out.println("After query");
 
+                while (rs.next()) {
+                    String topName = getCupCakeTopIDName(rs.getInt("caketopID"));
+                    String botName = getCupCakeBottomIDName(rs.getInt("cakebotID"));
+                    cart.add(new Cupcake(botName, topName));
+                }
+                return cart;
 
-                String topName = getCupCakeTopIDName(rs.getInt("caketopID"));
-                String botName = getCupCakeBottomIDName(rs.getInt("cakebotID"));
-                cart.add(new Cupcake(botName, topName));
+            } else {
+                return createCart(userID);
             }
-
 
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("CartLoader: Something went wrong here");
             System.out.println(ex);
         }
-        return cart;
+        return new ArrayList<Cupcake>();
     }
 
     public static String getCupCakeTopIDName(int cakeTopID) throws SQLException, ClassNotFoundException {
@@ -117,17 +114,23 @@ public class DBUtil {
     /*
     Henter OrderID fra DB hvor isordered = 0
  */
-    private static int getOrderID(int userID) throws SQLException, ClassNotFoundException {
-        Connection con = Connector.connection();
-        String SQL = "SELECT orderID FROM orders "
-                + "WHERE userID=? AND isordered=0";
+    private static int getOrderID(int userID) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT orderID FROM orders "
+                    + "WHERE userID=? AND isordered=0";
 
-        PreparedStatement ps = con.prepareStatement(SQL);
-        ps.setInt( 1, userID );
-        ResultSet rs = ps.executeQuery();
-        int orderID = rs.getInt("orderID");
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt( 1, userID );
+            ResultSet rs = ps.executeQuery();
+            int orderID = rs.getInt("orderID");
+            System.out.println(orderID);
+            return orderID;
 
-        return orderID;
+        } catch (ClassNotFoundException | SQLException ex) {
+            return -1;
+        }
+
     }
 
     public static ArrayList createCart(int userID){
@@ -135,21 +138,13 @@ public class DBUtil {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT orderID FROM orders "
-                    + "WHERE userID=? AND isordered=0";
+            String SQL = "INSERT INTO orders (userID, subtotal, quantity, isordered, ispaid)"
+                    + "VALUES    (?, 0, 0, 0, 0);";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, userID);
-            ResultSet rs = ps.executeQuery();
+            ps.executeUpdate();
 
-            if(!rs.next()) {
-                SQL = "INSERT INTO orders (userID, subtotal, quantity, isordered, ispaid)"
-                        + "VALUES	(?, 0, 0, 0, 0);";
-                ps = con.prepareStatement(SQL);
-                ps.setInt(1,userID);
-                ps.executeUpdate();
-
-            }
             return cart;
 
         } catch (SQLException e) {
@@ -160,7 +155,6 @@ public class DBUtil {
             return null;
         }
 
-
     }
 
     public static boolean saveCupcakeToOrder(String top, String bottom, int userID){
@@ -170,17 +164,14 @@ public class DBUtil {
 
 
             Connection con = Connector.connection();
-            String SQL = "UPDATE orderscupcakes "
-            +   "SET orderID = ?, " +
-                    "caketopID = ?, " +
-                    "cakebotID = ? " +
-                        "WHERE userID = ?;";
+            String SQL = "INSERT INTO orderscupcakes (orderID, caketopID, cakebotID, price)"
+                    + "VALUES    (?, ?, ?, ?);";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderID);
             ps.setInt(2, Cupcake.getTopCakeID(top));
             ps.setInt(3, Cupcake.getBottomCakeID(bottom));
-            ps.setInt(4, userID);
+            ps.setFloat( 4, Cupcake.getBottoms().get(bottom).getPrice() + Cupcake.getTops().get(top).getPrice() );
             ps.executeUpdate();
 
             return true;
@@ -241,6 +232,7 @@ public class DBUtil {
 
 
     }
+
 
 
 

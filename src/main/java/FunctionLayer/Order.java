@@ -10,7 +10,7 @@ public class Order {
 
     private int id;
 
-    Order(ArrayList<Cupcake> cakes){
+    public Order(ArrayList<Cupcake> cakes){
         this.cakes = cakes;
 
         for(Cupcake c : cakes) {

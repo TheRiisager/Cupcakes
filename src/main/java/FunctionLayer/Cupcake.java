@@ -56,7 +56,13 @@ public class Cupcake {
         return bottoms.get(cakeName).getCakeID();
     }
 
+    public static HashMap<String, Top> getTops() {
+        return tops;
+    }
 
+    public static HashMap<String, Bottom> getBottoms() {
+        return bottoms;
+    }
 
     @Override
     public String toString() {
