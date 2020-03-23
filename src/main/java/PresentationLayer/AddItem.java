@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import DBAccess.DBUtil;
+import DBAccess.OrderMapper;
 import FunctionLayer.Cupcake;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
@@ -21,7 +21,7 @@ public class AddItem extends Command {
         String bottom = request.getParameter( "Cupcakebot" );
 
         u.addToOrder( new Cupcake( bottom , top ) );
-        DBUtil.saveCupcakeToOrder(top,bottom,u.getId());
+        OrderMapper.saveCupcakeToOrder(top,bottom,u.getId());
 
         return "userpage";
     }

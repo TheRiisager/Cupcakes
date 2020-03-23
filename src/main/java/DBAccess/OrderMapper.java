@@ -7,30 +7,28 @@ import FunctionLayer.Top;
 
 
 
-public class DBUtil {
+public class OrderMapper {
 
     public static ArrayList<Cupcake> cartLoader(int userID) {
 
         ArrayList<Cupcake> cart = new ArrayList<Cupcake>();
         try {
-            System.out.println("Before query");
             int orderID = getOrderID(userID);
-            System.out.println(orderID);
 
             if(orderID != -1) {
                 Connection con = Connector.connection();
-                String SQL = "SELECT caketopID, cakebotID FROM orderscupcakes "
-                        + "WHERE orderID=?";
+                String SQL = "SELECT orderID, caketopID, cakebotID FROM orderscupcakes "
+                        + "WHERE orderID=?;";
                 PreparedStatement ps = con.prepareStatement(SQL);
                 ps.setInt(1, orderID);
                 ResultSet rs = ps.executeQuery();
-                System.out.println("After query");
 
                 while (rs.next()) {
                     String topName = getCupCakeTopIDName(rs.getInt("caketopID"));
                     String botName = getCupCakeBottomIDName(rs.getInt("cakebotID"));
                     cart.add(new Cupcake(botName, topName));
                 }
+
                 return cart;
 
             } else {
@@ -38,7 +36,8 @@ public class DBUtil {
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println("CartLoader: Something went wrong here");
+            System.out.println("CartLoader: Something went wrong here. Order might be empty in DB");
+
             System.out.println(ex);
         }
         return new ArrayList<Cupcake>();
@@ -47,10 +46,11 @@ public class DBUtil {
     public static String getCupCakeTopIDName(int cakeTopID) throws SQLException, ClassNotFoundException {
         Connection con = Connector.connection();
         String SQL = "SELECT cakename FROM cupcaketop "
-                + "WHERE caketopID=?";
+                + "WHERE caketopID=?;";
         PreparedStatement ps = con.prepareStatement(SQL);
         ps.setInt(1, cakeTopID);
         ResultSet rs = ps.executeQuery();
+        rs.next();
         String cupCakeTopName = rs.getString("cakename");
 
         return cupCakeTopName;
@@ -59,10 +59,11 @@ public class DBUtil {
     public static String getCupCakeBottomIDName(int cakeBotID) throws SQLException, ClassNotFoundException {
         Connection con = Connector.connection();
         String SQL = "SELECT cakename FROM cupcakebot "
-                + "WHERE cakebotID=?";
+                + "WHERE cakebotID=?;";
         PreparedStatement ps = con.prepareStatement(SQL);
         ps.setInt(1, cakeBotID);
         ResultSet rs = ps.executeQuery();
+        rs.next();
         String cupCakeBottomName = rs.getString("cakename");
 
         return cupCakeBottomName;
@@ -72,7 +73,7 @@ public class DBUtil {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT cakename, price, caketopID FROM cupcaketop ";
+            String SQL = "SELECT cakename, price, caketopID FROM cupcaketop;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
 
@@ -93,7 +94,7 @@ public class DBUtil {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT cakename, price, cakebotID  FROM cupcakebot ";
+            String SQL = "SELECT cakename, price, cakebotID  FROM cupcakebot;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
 
@@ -194,7 +195,7 @@ public class DBUtil {
             Connection con = Connector.connection();
             String SQL = "UPDATE orders "
                     + "SET isOrdered = 1 "
-                    + "Where orderID = ?";
+                    + "Where orderID = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderID);
             ps.executeUpdate();
@@ -218,7 +219,7 @@ public class DBUtil {
             Connection con = Connector.connection();
             String SQL = "UPDATE orders "
                     + "SET ispaid = 1 "
-                    + "Where orderID = ?";
+                    + "Where orderID = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderID);
             ps.executeUpdate();
@@ -235,6 +236,8 @@ public class DBUtil {
 
 
     }
+
+
 
 
 

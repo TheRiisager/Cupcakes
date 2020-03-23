@@ -1,7 +1,6 @@
 package FunctionLayer;
-import DBAccess.DBUtil;
+import DBAccess.OrderMapper;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Cupcake {
@@ -20,8 +19,8 @@ public class Cupcake {
             tops= new HashMap<>();
             bottoms = new HashMap<>();
 
-           DBUtil.cupCakeTopLoader();
-           DBUtil.cupCakeBottomLoader();
+           OrderMapper.cupCakeTopLoader();
+           OrderMapper.cupCakeBottomLoader();
 
         }
 

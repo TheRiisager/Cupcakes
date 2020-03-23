@@ -1,8 +1,6 @@
 package FunctionLayer;
 
-import DBAccess.DBUtil;
-
-import java.util.ArrayList;
+import DBAccess.OrderMapper;
 
 /**
  * The purpose of User is to...
@@ -28,7 +26,7 @@ public class User {
     }
 
     public void setUserOrder() {
-        this.userOrder = new Order( DBUtil.cartLoader( this.id ) );
+        this.userOrder = new Order( OrderMapper.cartLoader( this.id ) );
     }
 
     public void setUserOrder(Order o) {

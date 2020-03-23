@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import DBAccess.DBUtil;
+import DBAccess.OrderMapper;
 import FunctionLayer.Cupcake;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
@@ -22,8 +22,8 @@ public class OrderComplete extends Command {
 
         // TODO actually check users account balance
         if(true) {
-            DBUtil.setIsOrdered( u.getUserOrder().getId() );
-            DBUtil.setIsPaid( u.getUserOrder().getId() );
+            OrderMapper.setIsOrdered( u.getUserOrder().getId() );
+            OrderMapper.setIsPaid( u.getUserOrder().getId() );
             return "ordercomplete";
         } else {
             return "notenoughmoney";
