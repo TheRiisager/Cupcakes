@@ -40,6 +40,7 @@ public class DBUtil {
 
 
         } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("CartLoader: Something went wrong here");
             System.out.println(ex);
         }
         return cart;
@@ -162,7 +163,7 @@ public class DBUtil {
 
     }
 
-    public static void saveCupcakeToOrder(String top, String bottom, int userID){
+    public static boolean saveCupcakeToOrder(String top, String bottom, int userID){
 
         try{
             int orderID = getOrderID(userID);
@@ -182,21 +183,67 @@ public class DBUtil {
             ps.setInt(4, userID);
             ps.executeUpdate();
 
-
-
-
-
-
-
-
-
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            return false;
         }
 
     }
+
+    public static boolean setIsOrdered(int orderID){
+
+        try{
+            Connection con = Connector.connection();
+            String SQL = "UPDATE orders "
+                    + "SET isOrdered = 1 "
+                    + "Where orderID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderID);
+            ps.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
+
+    }
+
+    public static boolean setIsPaid(int orderID){
+
+        try{
+            Connection con = Connector.connection();
+            String SQL = "UPDATE orders "
+                    + "SET ispaid = 1 "
+                    + "Where orderID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderID);
+            ps.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
+
+    }
+
+
+
 
 
 
