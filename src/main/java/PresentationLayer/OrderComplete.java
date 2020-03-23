@@ -1,10 +1,7 @@
 package PresentationLayer;
 
 import DBAccess.OrderMapper;
-import FunctionLayer.Cupcake;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Order;
-import FunctionLayer.User;
+import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +17,8 @@ public class OrderComplete extends Command {
 
         // TODO actually check users account balance
         if(true) {
-            OrderMapper.setIsOrdered( u.getUserOrder().getId() );
-            OrderMapper.setIsPaid( u.getUserOrder().getId() );
+            boolean nej = LogicFacade.setIsOrdered(u.getId());
+            boolean nej2 = LogicFacade.setIsPaid(u.getId());
             u.setUserOrder(new Order(new ArrayList<Cupcake>()));
             return "ordercomplete";
         } else {

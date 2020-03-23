@@ -32,4 +32,8 @@ public class LogicFacade {
         return OrderMapper.setIsOrdered(userID);
     }
 
+    public static boolean setIsPaid(int userID) {
+        return OrderMapper.setIsPaid(userID);
+    }
+
 }
