@@ -14,7 +14,7 @@ public class OrderCompleteNoPay extends Command {
         User u = (User) session.getAttribute( "user" );
 
         u.setUserOrder(new Order(new ArrayList<Cupcake>()));
-        boolean nej = LogicFacade.setIsOrdered(u.getId());
+        LogicFacade.setIsOrdered(u.getId());
         return "ordercomplete";
     }
 }

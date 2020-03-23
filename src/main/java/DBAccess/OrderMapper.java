@@ -219,9 +219,9 @@ public class OrderMapper {
         try{
             int orderID = getOrderID(userID);
             Connection con = Connector.connection();
-            String SQL = "UPDATE orders "
-                    + "SET ispaid = 1 "
-                    + "Where orderID = ?;";
+            String SQL = "UPDATE orders " +
+                         "SET ispaid = 1 " +
+                         "Where orderID = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderID);
             ps.executeUpdate();
