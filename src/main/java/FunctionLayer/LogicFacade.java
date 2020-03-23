@@ -27,4 +27,9 @@ public class LogicFacade {
 
     }
 
+    public static boolean setIsOrdered(int userID){
+
+        return OrderMapper.setIsOrdered(userID);
+    }
+
 }

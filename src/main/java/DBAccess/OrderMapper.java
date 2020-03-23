@@ -189,12 +189,13 @@ public class OrderMapper {
 
     }
 
-    public static boolean setIsOrdered(int orderID){
+    public static boolean setIsOrdered(int userID){
 
         try{
+            int orderID = getOrderID(userID);
             Connection con = Connector.connection();
             String SQL = "UPDATE orders "
-                    + "SET isOrdered = 1 "
+                    + "SET isordered = 1 "
                     + "Where orderID = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderID);
@@ -213,9 +214,10 @@ public class OrderMapper {
 
     }
 
-    public static boolean setIsPaid(int orderID){
+    public static boolean setIsPaid(int userID){
 
         try{
+            int orderID = getOrderID(userID);
             Connection con = Connector.connection();
             String SQL = "UPDATE orders "
                     + "SET ispaid = 1 "
