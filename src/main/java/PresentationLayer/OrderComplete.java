@@ -18,12 +18,11 @@ public class OrderComplete extends Command {
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute( "user" );
 
-        u.setUserOrder(new Order(new ArrayList<Cupcake>()));
-
         // TODO actually check users account balance
         if(true) {
             OrderMapper.setIsOrdered( u.getUserOrder().getId() );
             OrderMapper.setIsPaid( u.getUserOrder().getId() );
+            u.setUserOrder(new Order(new ArrayList<Cupcake>()));
             return "ordercomplete";
         } else {
             return "notenoughmoney";
