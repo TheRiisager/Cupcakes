@@ -1,0 +1,30 @@
+@startuml
+
+Title Olsker Cupcakes
+State index.jsp
+State "index.jsp" as error
+State userpage.jsp
+State LogUd
+
+
+note right of userpage.jsp
+Bruger gemmes i session
+end note
+note right of LogUd
+Session invalidate
+end note
+
+[*] -> Index.jsp
+Index.jsp --> userpage.jsp : Email og kode OK
+error --> index.jsp : tast igen
+index.jsp --> error : email eller kode IKKE OK
+userpage.jsp --> LogUd
+LogUd -->[*]
+index.jsp --> Hjem: tilbage til index
+index.jsp --> Om: About
+index.jsp --> Kontakt: kontakt
+index.jsp --> Sortiment: cupcakes
+
+@enduml
+
+java -jar plantuml.jar Olsker Cucpakes.

@@ -1,0 +1,18 @@
+@startuml
+
+title Bestil Cupcake \n
+
+start
+
+:Registrer dig som bruger eller login;
+
+note left
+    Email og pass.
+end note
+
+:Tilføj top og bund til din cupcake;
+:Afslut ordren ved at betale med saldo eller ved afhentning;
+:Log ud;
+stop
+
+@enduml
