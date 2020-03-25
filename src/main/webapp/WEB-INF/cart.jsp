@@ -20,8 +20,8 @@
 
     <br>
     <form name="pay" action="FrontController" method="POST">
-        <Button type="submit" class="btn btn-primary" name="target" value="ordercomplete">Betal med kredit</Button>
-        <Button type="submit" class="btn btn-primary" name="target" value="ordercompletenopay">Betal i butikken</Button>
+        <Button type="submit" class="btn btn-primary" name="target" value="ordercomplete" style="background-color: #C4556F; border-color: #C4556F">Betal med kredit</Button>
+        <Button type="submit" class="btn btn-primary" name="target" value="ordercompletenopay" style="background-color: #C4556F; border-color: #C4556F">Betal i butikken</Button>
     </form>
 </div>
 

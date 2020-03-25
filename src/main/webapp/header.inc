@@ -12,7 +12,7 @@
          <style>
             body {
                 background-color: #9b9b9b;
-                background-image: url("img/bg_login.jpg");
+                background-image: url("img/bglogintest.jpg");
                 background-size: cover;
                 height: 100%;
             }

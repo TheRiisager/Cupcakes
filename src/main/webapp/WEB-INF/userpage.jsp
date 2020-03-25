@@ -38,7 +38,7 @@
                         <option>Almond</option>
                 </select>
         </div>
-                <Button type="submit" class="btn btn-primary" name="target" value="addItem">Føj til bestilling</Button>
+                <Button type="submit" class="btn btn-primary" name="target" value="addItem" style="background-color: #C4556F; border-color: #C4556F">Føj til bestilling</Button>
         </form>
 </div>
 

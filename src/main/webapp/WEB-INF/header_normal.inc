@@ -75,7 +75,7 @@
                         <div class="justify-content-right">
 
                                 <div class="dropdown show">
-                                  <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #3c1460;">
+                                  <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #3c1460;" >
                                     ${sessionScope.email} : ${sessionScope.balance}kr.
                                   </a>
 

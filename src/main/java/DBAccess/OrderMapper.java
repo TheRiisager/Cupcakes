@@ -143,8 +143,8 @@ public class OrderMapper {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO orders (userID, subtotal, quantity, isordered, ispaid)"
-                    + "VALUES    (?, 0, 0, 0, 0);";
+            String SQL = "INSERT INTO orders (userID, isordered, ispaid)"
+                    + "VALUES    (?, 0, 0);";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, userID);

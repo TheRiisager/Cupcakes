@@ -18,12 +18,12 @@
         <a class="text-white">Password:</a><br>
         <input type="password" name="password1" value="42069" required>
         <br>
-        <Button type="submit" class="btn btn-primary" name="target" value="login">Log Ind</Button>
+        <br>
+        <Button type="submit" class="btn btn-primary" name="target" value="login" style="background-color: #C4556F; border-color: #C4556F">Log Ind</Button>
     </form>
     <br>
     <form name="userregister" action="FrontController" method="POST">
-        <a class="text-white">Ikke registreret?</a><br>
-        <Button type="submit" class="btn btn-primary" name="target" value="userregister">Registrer Her</Button>
+        <Button type="submit" class="btn btn-link" name="target" value="userregister" style="text-decoration: none; color: lightgray; text-align: left; padding: 0;">Ikke registreret?<br>Registrer Her</Button>
     </form>
 </td>
 
