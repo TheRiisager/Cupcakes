@@ -63,5 +63,42 @@ public class UserMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
+    public static float getUserBalance(int userID) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT balance FROM users "
+                    + "WHERE userID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
+            float balance = -1.00f;
+
+            if(rs.next()) {
+                balance = rs.getFloat("balance");
+            }
+            return balance;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println(e);
+        }
+
+        return -1.00f;
+    }
+
+    public static void setUserBalance(float balance, int userID){
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE users SET balance = ? WHERE userID = ? ";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setFloat(1, balance);
+            ps.setInt(2, userID);
+            ps.executeUpdate();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
+        }
+    }
 }
 

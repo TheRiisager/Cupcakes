@@ -21,6 +21,14 @@ public class LogicFacade {
         return user;
     }
 
+    public static float getUserBalance(int userID) {
+        return UserMapper.getUserBalance(userID);
+    }
+
+    public static void setUserBalance(float balance, int userID){
+        UserMapper.setUserBalance(balance, userID);
+    }
+
     public static ArrayList<Cupcake> cartLoader(int userID) {
 
         return OrderMapper.cartLoader(userID);

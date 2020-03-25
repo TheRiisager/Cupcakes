@@ -14,11 +14,18 @@ public class OrderComplete extends Command {
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute( "user" );
 
-        // TODO actually check users account balance
-        if(true) {
+        float subtotal = u.getUserOrder().getSubtotal();
+        float userBalance = LogicFacade.getUserBalance(u.getId());
+
+
+        if(userBalance >= subtotal) {
+
             LogicFacade.setIsPaid(u.getId());
             LogicFacade.setIsOrdered(u.getId());
             u.setUserOrder(new Order(new ArrayList<Cupcake>()));
+            float newBalance = userBalance - subtotal;
+            LogicFacade.setUserBalance(newBalance, u.getId());
+            session.setAttribute("balance", newBalance);
             return "ordercomplete";
         } else {
             return "notenoughmoney";

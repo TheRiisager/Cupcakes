@@ -76,14 +76,14 @@
 
                                 <div class="dropdown show">
                                   <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #3c1460;">
-                                    ${sessionScope.email}
+                                    ${sessionScope.email} : ${sessionScope.balance}kr.
                                   </a>
 
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
                                         <form name="cart" action="FrontController" method="POST">
                                           <input type="hidden" name="target" value="cart">
-                                          <input type="submit" value="kurv" class="btn btn-link" style="text-decoration: none; color: #3c1460;">
+                                          <input type="submit" value="Kurv" class="btn btn-link" style="text-decoration: none; color: #3c1460;">
                                         </form>
 
                                         <form name="cart" action="FrontController" method="POST">

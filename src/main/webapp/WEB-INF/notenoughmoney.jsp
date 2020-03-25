@@ -6,11 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ include file = "header_normal.inc" %>
+<div class="container w-75" style="color: white;">
+    <h1 class="display-2">Desværre...</h1>
+    <p>
+        Du har ikke nok penge på kontoen til at kunne gennemføre din bestilling... <br>
+    </p>
+</div>
 
-</body>
-</html>
+<%@ include file = "footer_normal.inc" %>

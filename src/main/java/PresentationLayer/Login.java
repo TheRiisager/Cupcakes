@@ -21,12 +21,15 @@ public class Login extends Command {
         String email = request.getParameter( "email" );
         String password = request.getParameter( "password1" );
         User user = LogicFacade.login( email, password );
-
+        float balance = LogicFacade.getUserBalance(user.getId());
+        String balanceString = String.format("%.2f", balance);
+        System.out.println(balanceString);
         HttpSession session = request.getSession();
 
         session.setAttribute( "user", user );
         session.setAttribute( "role", user.getRole() );
         session.setAttribute("email", email);  // ellers skal man skrive  user.email på jsp siderne og det er sgu lidt mærkeligt at man har adgang til private felter. Men måske er det meget fedt , jeg ved det ikke
+        session.setAttribute("balance", balanceString);
 
 
         return user.getRole() + "page";
