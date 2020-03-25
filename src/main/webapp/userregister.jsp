@@ -10,7 +10,7 @@
 
 <%@ include file = "header.inc" %>
 
-<img src="img/logo.svg" height="120" width="300">
+<img src="img/logotest.svg" height="120" width="300">
 
 <td>
     <form name="register" action="FrontController" method="POST">
@@ -24,12 +24,12 @@
         <input type="password" name="password2" value="" required>
         <br>
         <br>
-        <Button type="submit" class="btn btn-primary" name="target" value="register">Registrer</Button>
+        <Button type="submit" class="btn btn-primary" name="target" value="register" style="background-color: #C4556F; border-color: #C4556F">Registrer</Button>
     </form>
     <br>
     <form name="index" action="FrontController" method="POST">
         <a class="text-white">Er Du Registreret?</a><br>
-        <Button type="submit" class="btn btn-primary" name="target" value="index">Log Ind Her</Button>
+        <Button type="submit" class="btn btn-primary" name="target" value="index" style="background-color: #C4556F; border-color: #C4556F">Log Ind Her</Button>
     </form>
 </td>
 
