@@ -30,4 +30,6 @@
 
 <%@ include file = "footer.inc" %>
 
-
+<form name="logout" action="FrontController" method="POST">
+<Button type="submit" class="btn btn-primary" name="target" value="logout">Log Out</Button>
+</form>

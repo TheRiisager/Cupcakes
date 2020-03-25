@@ -1,0 +1,42 @@
+@startuml
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 20
+skinparam maxmessagesize 60
+skinparam sequenceParticipant underline
+
+actor User
+participant "Login" as A
+participant "LogicFacade" as B
+participant "UserMapper" as C
+participant "DB" as D
+
+User -> A: Request User Info
+activate A
+
+A -> B: Create Login Request
+activate B
+
+B -> C: Send Login Request
+activate C
+C --> D: Send Info To Validation
+D --> D: Validating
+
+alt Validation OK
+
+D --> C: Validation OK
+C --> B: Return Login Request
+
+B --> A: Login Request Created
+
+
+A --> User: Logged in
+else Validation Not OK
+D --> C: Validation Not OK
+C --> B: Return Login Request
+
+B --> A: Login Request Created
+
+
+A --> User: Err: Wrong Acc Or Pass
+end
+@enduml
