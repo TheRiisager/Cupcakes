@@ -8,7 +8,7 @@
 
 <%@ include file = "header.inc" %>
 
-            <img src="img/logotest.svg" height="200">
+<img src="img/logotest.svg" height="200">
 
 <td>
     <form name="login" action="FrontController" method="POST">
@@ -29,7 +29,3 @@
 
 
 <%@ include file = "footer.inc" %>
-
-<form name="logout" action="FrontController" method="POST">
-<Button type="submit" class="btn btn-primary" name="target" value="logout">Log Out</Button>
-</form>

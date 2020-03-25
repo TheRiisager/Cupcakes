@@ -52,19 +52,19 @@
 
                                         <form name="index" action="FrontController" method="POST">
                                                 <input type="hidden" name="target" value="index">
-                                                <input type="submit" value="Hjem" class="btn btn-light">
+                                                <input type="submit" value="Hjem" class="btn btn-light" style="color: #3c1460;">
                                         </form>
                                         <form name="products" action="FrontController" method="POST">
                                                 <input type="hidden" name="target" value="products">
-                                                <input type="submit" value="Sortiment" class="btn btn-light">
+                                                <input type="submit" value="Sortiment" class="btn btn-light" style="color: #3c1460;">
                                         </form>
                                         <form name="about" action="FrontController" method="POST">
                                                 <input type="hidden" name="target" value="about">
-                                                <input type="submit" value="Om os" class="btn btn-light">
+                                                <input type="submit" value="Om os" class="btn btn-light" style="color: #3c1460;">
                                         </form>
                                         <form name="contact" action="FrontController" method="POST" >
                                                 <input type="hidden" name="target" value="contact">
-                                                <input type="submit" value="Kontakt" class="btn btn-light">
+                                                <input type="submit" value="Kontakt" class="btn btn-light" style="color: #3c1460;">
                                         </form>
 
 
@@ -73,11 +73,26 @@
                         </div>
 
                         <div class="justify-content-right">
-                            <form >
-                                <input type="hidden" name="target" value="cart">
-                                <input type="submit" value="${sessionScope.email}" class="btn btn-light font-weight-light">
-                                <img src="img/cart.svg" height="25" width="25">
-                            </form>
+
+                                <div class="dropdown show">
+                                  <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #3c1460;">
+                                    ${sessionScope.email}
+                                  </a>
+
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                                        <form name="cart" action="FrontController" method="POST">
+                                          <input type="hidden" name="target" value="cart">
+                                          <input type="submit" value="kurv" class="btn btn-link" style="text-decoration: none; color: #3c1460;">
+                                        </form>
+
+                                        <form name="cart" action="FrontController" method="POST">
+                                            <input type="hidden" name="target" value="logout">
+                                            <input type="submit" value="Log ud" class="btn btn-link" style="text-decoration: none; color: #3c1460;">
+                                        </form>
+
+                                  </div>
+                                </div>
                         </div>
                 </nav>
 
