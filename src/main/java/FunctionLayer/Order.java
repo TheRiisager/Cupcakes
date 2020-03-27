@@ -2,6 +2,10 @@ package FunctionLayer;
 
 import java.util.ArrayList;
 
+/**
+ * A class to hold orders from the database.
+ */
+
 public class Order {
 
     private float subtotal;
@@ -9,7 +13,7 @@ public class Order {
     private ArrayList<Cupcake> cakes;
 
     private int id;
-
+    
     public Order(ArrayList<Cupcake> cakes){
         this.cakes = cakes;
 
@@ -45,5 +49,16 @@ public class Order {
 
     public float getSubtotal() {
         return subtotal;
+    }
+
+    @Override
+    public String toString() {
+        int counter = 0;
+
+        for(Cupcake c : cakes) {
+            counter++;
+        }
+
+        return "ID: " + id + " | " + "Amount: " + counter + " | " + "Total: " + subtotal + "kr.";
     }
 }

@@ -30,18 +30,19 @@ public class LogicFacade {
     }
 
     public static ArrayList<Cupcake> cartLoader(int userID) {
-
         return OrderMapper.cartLoader(userID);
-
     }
 
     public static boolean setIsOrdered(int userID){
-
         return OrderMapper.setIsOrdered(userID);
     }
 
     public static boolean setIsPaid(int userID) {
         return OrderMapper.setIsPaid(userID);
+    }
+
+    public static ArrayList<Order> getAllOrders() {
+        return OrderMapper.getAllOrders();
     }
 
 }

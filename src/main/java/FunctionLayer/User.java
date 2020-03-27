@@ -3,8 +3,7 @@ package FunctionLayer;
 import DBAccess.OrderMapper;
 
 /**
- * The purpose of User is to...
- * @author kasper
+ * A class to store user information after it has been fetched from the database.
  */
 public class User {
 
