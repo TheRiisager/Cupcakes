@@ -45,4 +45,8 @@ public class LogicFacade {
         return OrderMapper.getAllOrders();
     }
 
+    public static void removeOrder(int orderID) {
+        OrderMapper.removeOrder(orderID);
+    }
+
 }

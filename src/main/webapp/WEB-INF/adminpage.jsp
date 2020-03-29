@@ -16,6 +16,14 @@
             <li class="list-group-item">${order}</li>
         </c:forEach>
     </ul>
+
+    <form name="deleteOrder" action="FrontController" method="POST">
+        <input type="text" name="orderID" value="0" required>
+        <br>
+        <br>
+        <Button type="submit" class="btn btn-primary" name="target" value="deleteOrder" style="background-color: #C4556F; border-color: #C4556F">Slet</Button>
+    </form>
+
 </div>
 
 
